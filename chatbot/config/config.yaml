@@ -8,7 +8,10 @@ embedding_model:
   provider: "sentence-transformers"
   model_name: "sentence-transformers/all-MiniLM-L6-v2"
 
-source_data: "source_data"
+source_data: "medical_chatbot/source_data"
+index_name:
+  test: "test-midical-chatbot"
+  dev: "medical-chatbot"
 
 
 

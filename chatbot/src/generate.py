@@ -33,6 +33,7 @@ class Generate:
         self.system_prompt = system_prompt
         self.retriever = Retriever()
         self.model_loader = ModelLoader()
+        self.index_name = load_config["index_name"]["test"]
 
 
 
@@ -59,16 +60,16 @@ class Generate:
             log.error(f"Error while setting-up prompt")
             raise ProjectException(f"Error while setup prompt: {str(e)}", sys)
 
-    def _setup_chain(self):
+    def _setup_chain(self, index_name: str = "test-midical-chatbot"):
         try:
             chain = (
                 RunnableParallel(
-                    context = lambda x: self.retriever.retriever().invoke(x["input"]),
+                    context = lambda x: self.retriever.retriever(self.index_name).invoke(x["input"]),
                     input = RunnablePassthrough()
                 )
                 | self._setup_prompt()
                 | self.model_loader.load_llm()
-                | RunnableLambda(lambda msg: {"result": msg.__dir__content})
+                | RunnableLambda(lambda msg: {"answer": msg.content})
             )
             return chain
 
