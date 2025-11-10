@@ -28,14 +28,16 @@ class ChatIngestor:
         self.model_loader = ModelLoader()
         self.documents = load_documents()
 
-    def indexing(self, index_name: str):
+    def indexing(self):
         
         try:
             PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
             pinecone_api_key = PINECONE_API_KEY
             pc = Pinecone(api_key=pinecone_api_key)
+            index_name = "test-midical-chatbot"
 
             if not pc.has_index(index_name):
+                log.info(f"There is not Index name: {index_name}, start creating it.")
                 self._create_index(pc=pc, index_name=index_name)
 
 

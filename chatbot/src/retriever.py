@@ -1,20 +1,8 @@
-import os
 import sys
-from pathlib import Path
-from typing import Iterable, List
-from dotenv import load_dotenv
 
-from pinecone import Pinecone
-from pinecone import ServerlessSpec
-
-
-from langchain_core.documents import Document
 from langchain_pinecone import PineconeVectorStore
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-from chatbot.utils.config_loader import load_config
 from chatbot.utils.model_loader import ModelLoader
-from chatbot.utils.docs_ops import load_documents
 
 from chatbot.logger import logging as log
 from chatbot.exception import ProjectException

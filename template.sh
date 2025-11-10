@@ -8,6 +8,7 @@ mkdir -p chatbot/prompts
 mkdir -p chatbot/utils
 mkdir -p chatbot/src
 mkdir -p chatbot/model
+mkdir -p chatbot/pipeline
 mkdir -p tests/
 
 
@@ -38,6 +39,10 @@ touch chatbot/src/__init__.py
 touch chatbot/src/chat_ingestor.py
 touch chatbot/src/retriever.py
 touch chatbot/src/generate.py
+
+touch chatbot/pipeline/__init__.py
+touch chatbot/pipeline/rag_pipeline.py
+
 
 
 echo "Directories and files created successfully!"

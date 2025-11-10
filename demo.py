@@ -5,5 +5,12 @@ ml = ModelLoader()
 ml.load_llm()
  """
 
-from chatbot.utils.docs_ops import load_documents
+""" from chatbot.utils.docs_ops import load_documents
 load_documents()
+ """
+
+
+
+
+from chatbot.pipeline.rag_pipeline import test_index
+test_index()
