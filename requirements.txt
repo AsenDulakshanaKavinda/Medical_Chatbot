@@ -2,6 +2,8 @@ langchain
 langchain-pinecone
 langchain-mistralai
 langchain-community
+hf_xet
+langchain-huggingface
 flask
 sentence-transformers
 pypdf
