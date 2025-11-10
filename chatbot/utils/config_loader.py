@@ -3,14 +3,7 @@ import os
 import yaml
 
 def _project_root() -> Path:
-    """
-    return the root dir of the project
-    eg:
-        if this file loacted at: 
-            E:\Project\Medical_Chatbot\chatbot\utils\config_loader.py
-        this function return
-            E:\Project\Medical_Chatbot
-    """
+    
     return Path(__file__).resolve().parents[2]
 
 def load_config(config_path: str | None = None) -> dict:

@@ -1,10 +1,12 @@
 import os
 import sys
 import json
+from dotenv import load_dotenv
 
 from chatbot.logger import logging as log
 from chatbot.exception import ProjectException
 
+load_dotenv()
 
 class ApiKeyManager:
     # list of api keys need
@@ -29,7 +31,7 @@ class ApiKeyManager:
 
         # if .env has individual api key
         for key in self.REQUIRED_KEY:
-            if not self.api_keys(key):
+            if not self.api_keys.get(key):
                 env_val = os.getenv(key)
                 if env_val:
                     self.api_keys[key] = env_val

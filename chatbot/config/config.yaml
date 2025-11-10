@@ -1,4 +1,12 @@
+llm:
+  mistral:
+    provider: "mistral"
+    model_name: "mistral-small-latest"
+    temperature: 0.0
 
+embedding_model:
+  provider: "sentence-transformers"
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
 
 
 
