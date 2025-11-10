@@ -15,11 +15,11 @@ from chatbot.exception import ProjectException
 
 def load_documents() -> List[Document]:
     log.info("Loading documents started")
-    config = load_config()
-    source_data = config["source_data"]
+    
     try:
+        source_data = Path(__file__).resolve().parents[2] / "source_data"
         loader = DirectoryLoader(
-            path=source_data,
+            path=str(source_data),
             glob="*.pdf",
             loader_cls=PyPDFLoader
         )
