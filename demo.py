@@ -23,9 +23,32 @@ lc = load_config()
 print(lc["source_data"])
 print(lc["index_name"]["test"]) """
 
+# from chatbot.src.generate import Generate
+
+""" g = Generate()
+r = g.genetate("how to prevent heart-attack?")
+print(r["answer"]) """
+
 from chatbot.src.generate import Generate
 
-g = Generate()
-g.genetate("What is heart attack?")
+generator = Generate()
+response = generator.genetate()
 
+medical_questions = [
+    "What are the common symptoms of diabetes?",
+    "How can I lower my blood pressure naturally?",
+    "What does it mean if I have chest pain after exercising?",
+    "When should I see a doctor for a persistent cough?",
+    "What are the side effects of taking ibuprofen daily?",
+    "How can I tell if I’m dehydrated?",
+    "What are the early warning signs of a stroke?",
+    "Is it normal to have headaches every day?",
+    "What foods help improve liver health?",
+    "How much sleep do adults need for optimal health?"
+]
 
+for question in medical_questions:
+    print(f"Question: {medical_questions[question]}")
+    print(f"Answer: {generator.genetate(question)}")
+
+    

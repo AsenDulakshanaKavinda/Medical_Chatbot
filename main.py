@@ -1,6 +1,9 @@
-def main():
-    print("Hello from medical-chatbot!")
+
+from chatbot.utils.config_loader import load_config
 
 
-if __name__ == "__main__":
-    main()
+config = load_config()
+print(config["index_name"]["test"])
+print(type(config["index_name"]["test"]))
+
+print(load_config()["index_name"]["test"])

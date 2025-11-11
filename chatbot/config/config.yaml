@@ -10,8 +10,8 @@ embedding_model:
 
 source_data: "medical_chatbot/source_data"
 index_name:
-  test: "test-midical-chatbot"
-  dev: "medical-chatbot"
+  dev: "test-midical-chatbot"
+  production: "medical-chatbot"
 
 
 
