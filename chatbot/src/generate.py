@@ -25,7 +25,7 @@ class Generate:
         self.config = load_config()
 
         if os.getenv("ENV", "local").lower() != "production":
-            self.index_name = load_config()["index_name"]["test"]
+            self.index_name = load_config()["index_name"]["dev"]
             log.info("Running in LOCAL INDEX: env loaded.")
         else:
             self.index_name = load_config()["index_name"]["production"]

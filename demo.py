@@ -48,7 +48,7 @@ medical_questions = [
 ]
 
 for question in medical_questions:
-    print(f"Question: {medical_questions[question]}")
+    print(f"Question: {question}")
     print(f"Answer: {generator.genetate(question)}")
 
     
