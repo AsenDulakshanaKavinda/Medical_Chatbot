@@ -9,7 +9,7 @@ from chatbot.exception import ProjectException
 from chatbot.utils.config_loader import load_config
 from chatbot.utils.api_key_loader import ApiKeyManager
 
-from langchain_mistralai import ChatMistralAI
+from langchain_mistralai import ChatMistralAI, MistralAIEmbeddings
 from langchain_huggingface import HuggingFaceEmbeddings
 
 class ModelLoader:
@@ -64,8 +64,25 @@ class ModelLoader:
         """
         try:
             model_name = self.config["embedding_model"]["model_name"]
+            # model_name = "mistral-embed"
             log.info(f"Loading embedding model, model={model_name}")
             embeddings = HuggingFaceEmbeddings(
+                model_name=model_name
+            )
+            return embeddings
+        except Exception as e:
+            log.error(f"Error loading embedding model, error={str(e)}")
+            raise ProjectException("Failed to load embedding model", sys)
+        
+    def load_mistral_embedding(self):
+        """
+        load and return the configured embedding model
+        """
+        try:
+            # model_name = self.config["embedding_model"]["model_name"]
+            model_name = "mistral-embed"
+            log.info(f"Loading embedding model, model={model_name}")
+            embeddings = MistralAIEmbeddings(
                 model_name=model_name
             )
             return embeddings

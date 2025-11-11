@@ -33,14 +33,14 @@ class Generate:
         self.system_prompt = system_prompt
         self.retriever = Retriever()
         self.model_loader = ModelLoader()
-        self.index_name = load_config["index_name"]["test"]
+        self.index_name = "test-midical-chatbot"
 
 
 
-    def genetate(self):
+    def genetate(self, use_input: str):
         try:
-            response = self._setup_chain().invoke({"input": "what is heart attack?"})
-            print(response)
+            response = self._setup_chain().invoke({"input": use_input})
+            return response
         except Exception as e:
             log.error(f"Error while genetating response")
             raise ProjectException(f"Error while genetating response: {str(e)}", sys)

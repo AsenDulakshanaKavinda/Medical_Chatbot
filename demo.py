@@ -12,5 +12,20 @@ load_documents()
 
 
 
-from chatbot.pipeline.rag_pipeline import test_index, test_retriever, test_generetor
-test_generetor()
+""" from chatbot.pipeline.rag_pipeline import test_index, test_retriever, test_generetor
+test_generetor() """
+
+
+""" from chatbot.utils.config_loader import load_config
+lc = load_config()
+
+# print(lc)
+print(lc["source_data"])
+print(lc["index_name"]["test"]) """
+
+from chatbot.src.generate import Generate
+
+g = Generate()
+g.genetate("What is heart attack?")
+
+
