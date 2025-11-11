@@ -10,11 +10,14 @@ mkdir -p chatbot/src
 mkdir -p chatbot/model
 mkdir -p chatbot/pipeline
 mkdir -p tests/
+mkdir -p static/
+mkdir -p templates/
 
 
 
 # create files
 touch setup.py
+touch app.py
 touch requirements.txt
 touch research/trials.ipynb
 
@@ -35,6 +38,7 @@ touch chatbot/utils/model_loader.py
 touch chatbot/utils/docs_ops.py
 touch chatbot/utils/file_io.py
 
+
 touch chatbot/src/__init__.py
 touch chatbot/src/chat_ingestor.py
 touch chatbot/src/retriever.py
@@ -43,6 +47,8 @@ touch chatbot/src/generate.py
 touch chatbot/pipeline/__init__.py
 touch chatbot/pipeline/rag_pipeline.py
 
+touch static/style.css
+touch templates/index.html
 
 
 echo "Directories and files created successfully!"

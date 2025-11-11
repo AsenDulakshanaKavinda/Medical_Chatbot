@@ -12,5 +12,5 @@ load_documents()
 
 
 
-from chatbot.pipeline.rag_pipeline import test_index
-test_index()
+from chatbot.pipeline.rag_pipeline import test_index, test_retriever, test_generetor
+test_generetor()

@@ -7,5 +7,13 @@ def test_index():
     ci = ChatIngestor()
     ci.indexing()
 
+def test_retriever():
+    re = Retriever()
+    re.retriever()
+    
+def test_generetor():
+    ge = Generate()
+    ge.genetate()
+
 
 

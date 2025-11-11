@@ -37,16 +37,17 @@ class ChatIngestor:
             index_name = "test-midical-chatbot"
 
             if not pc.has_index(index_name):
-                log.info(f"There is not Index name: {index_name}, start creating it.")
-                self._create_index(pc=pc, index_name=index_name)
+                log.info(f"No index found. Creating index: {index_name}")
+                self._create_index(pc, index_name)
+                PineconeVectorStore.from_documents(
+                    documents=self._filter_to_minimal_docs(self.documents),
+                    embedding=self.model_loader.load_embedding(),
+                    index_name=index_name
+                )
+                log.info("Documents uploaded to new index.")
+            else:
+                log.info(f"Index '{index_name}' already exists. Skipping upload.")
 
-
-            index_to = PineconeVectorStore.from_documents(
-                documents = self._filter_to_minimal_docs(self.documents),
-                embedding = self.model_loader.load_embedding(),
-                index_name = index_name
-            )
-            log.info(f"Indexing is complited....")
 
         except Exception as e:
             log.error(f"Error while indexing")
