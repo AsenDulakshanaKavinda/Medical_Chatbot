@@ -32,6 +32,7 @@ def format_error_message(error: Exception, tb) -> str:
     full_trace = ''.join(traceback.format_tb(tb))
 
     error_message = f"Error in [{file_name}] at line [{line_number}]: {str(error)} \nFull Traceback:\n{full_trace}"
+    return error_message
 
 class ChatbotException(Exception):
     """
