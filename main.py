@@ -1,9 +1,3 @@
+from src.medical_chatbot.core.logger_config import logger as log
 
-from chatbot.utils.config_loader import load_config
-
-
-config = load_config()
-print(config["index_name"]["test"])
-print(type(config["index_name"]["test"]))
-
-print(load_config()["index_name"]["test"])
+log.info("test loger")
